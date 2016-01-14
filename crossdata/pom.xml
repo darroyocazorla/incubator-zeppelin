@@ -22,7 +22,7 @@
   <parent>
     <artifactId>zeppelin</artifactId>
     <groupId>org.apache.zeppelin</groupId>
-    <version>0.5.6-incubating</version>
+    <version>0.6.0-incubating-SNAPSHOT</version>
     <relativePath>..</relativePath>
   </parent>
 
@@ -186,7 +186,7 @@
         </executions>
       </plugin>-->
 
-<!--      <plugin>
+      <plugin>
         <artifactId>maven-dependency-plugin</artifactId>
         <version>2.8</version>
         <executions>
@@ -227,7 +227,7 @@
             </configuration>
           </execution>
         </executions>
-      </plugin>-->
+      </plugin>
 
       <!-- Plugin to compile Scala code -->
       <plugin>
