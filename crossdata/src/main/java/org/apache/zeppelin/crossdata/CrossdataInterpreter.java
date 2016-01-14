@@ -64,7 +64,7 @@ public class CrossdataInterpreter extends Interpreter {
     public InterpreterResult interpret(String sql, InterpreterContext context) {
 
         SQLResult sqlResult = driver.syncQuery(new SQLCommand(sql, UUID.randomUUID(), false),
-                new Timeout(Long.parseLong(getProperty(CROSSDATA_TIMEOUT_SEC))),
+                new Timeout(1000*Long.parseLong(getProperty(CROSSDATA_TIMEOUT_SEC))),
                 Integer.parseInt(getProperty(CROSSDATA_RETRIES)));
 
         if (sqlResult.hasError() && ErrorResult.class.isInstance(sqlResult)) {
