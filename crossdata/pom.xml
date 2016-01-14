@@ -29,7 +29,7 @@
   <groupId>org.apache.zeppelin</groupId>
   <artifactId>zeppelin-crossdata</artifactId>
   <packaging>jar</packaging>
-  <version>0.5.6-incubating</version>
+  <version>0.6.0-incubating-SNAPSHOT</version>
   <name>Zeppelin: Crossdata</name>
   <description>Zeppelin Crossdata support</description>
   <url>https://github.com/Stratio/Crossdata</url>
