@@ -27,7 +27,7 @@ public class CrossdataInterpreter extends Interpreter {
     private static final String CROSSDATA_SEEDS_PROPERTY = "crossdata.seeds";
     private static final String CROSSDATA_DEFAULT_LIMIT = "crossdata.defaultLimit";
     private static final String CROSSDATA_RETRIES = "crossdata.retries";
-    private static final String CROSSDATA_TIMEOUT_SEC = "crossdata.tiemout";
+    private static final String CROSSDATA_TIMEOUT_SEC = "crossdata.tiemoutSeconds";
 
 
     static {
@@ -38,7 +38,7 @@ public class CrossdataInterpreter extends Interpreter {
                 new InterpreterPropertyBuilder()
                         .add(CROSSDATA_SEEDS_PROPERTY, "127.0.0.1:13420", "The list of seeds.")
                         .add(CROSSDATA_DEFAULT_LIMIT, "1000", "Default limit")
-                        .add(CROSSDATA_RETRIES, "2", "Number of retries.")
+                                //.add(CROSSDATA_RETRIES, "1", "Number of retries.")
                         .add(CROSSDATA_TIMEOUT_SEC, "100", "Query tiemout in seconds").build());
     }
 
@@ -65,7 +65,7 @@ public class CrossdataInterpreter extends Interpreter {
 
         SQLResult sqlResult = driver.syncQuery(new SQLCommand(sql, UUID.randomUUID(), false),
                 new Timeout(1000*Long.parseLong(getProperty(CROSSDATA_TIMEOUT_SEC))),
-                Integer.parseInt(getProperty(CROSSDATA_RETRIES)));
+                0); //Integer.parseInt(getProperty(CROSSDATA_RETRIES))
 
         if (sqlResult.hasError() && ErrorResult.class.isInstance(sqlResult)) {
             return new InterpreterResult(InterpreterResult.Code.ERROR, ErrorResult.class.cast(sqlResult).message());
