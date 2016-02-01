@@ -55,8 +55,7 @@ public class CrossdataInterpreter extends Interpreter {
 
     @Override
     public void close() {
-        // TODO add JavaDriver close => driver.close()
-
+        driver.close();
     }
 
 
